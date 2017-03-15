@@ -19,9 +19,9 @@ The client is fully configured and should work as is.
 
 ### EXECUTION
 
-
-1. Run the client by executing `run.bat`.
-2. Follow the instructions written in the console.
+1. Start CMD with administrator permissions.
+2. Run the client by executing `run.bat`.
+3. Follow the instructions written in the console.
 
 
 ### BUILD

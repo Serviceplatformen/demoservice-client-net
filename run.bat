@@ -9,9 +9,11 @@ echo 1 - Context client
 echo 2 - Token client
 Set /p option=
 if %option% == 1 (
+	rem This path should be updated appropriately.
 	call %windir%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe DemoClient\DemoClient.sln
 	DemoClient\DemoClient\bin\Debug\DemoClient.exe
 ) else if %option% == 2 (
+	rem This path should be updated appropriately.
 	call %windir%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe DemoTokenClient\DemoTokenClient.sln
 	DemoTokenClient\DemoTokenClient\bin\Debug\DemoTokenClient.exe
 )
