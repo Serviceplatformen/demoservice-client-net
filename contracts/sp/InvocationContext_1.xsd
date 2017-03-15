@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            version="1.0"
+            targetNamespace="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/">
+
+    <xsd:element name="InvocationContext" type="tns:InvocationContextType"/>
+    <xsd:complexType name="InvocationContextType">
+        <xsd:all>
+            <xsd:element ref="tns:ServiceAgreementUUID" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="tns:UserSystemUUID" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="tns:UserUUID" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="tns:OnBehalfOfUser" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="tns:ServiceUUID" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="tns:CallersServiceCallIdentifier" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="tns:AccountingInfo" minOccurs="0" maxOccurs="1"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:element name="ServiceAgreementUUID" type="tns:ServiceAgreenentUUIDtype"/>
+    <xsd:simpleType name="ServiceAgreenentUUIDtype">
+        <xsd:restriction base="tns:UUIDtype"/>
+    </xsd:simpleType>
+
+    <xsd:element name="ServiceUUID" type="tns:ServiceUUIDtype"/>
+    <xsd:simpleType name="ServiceUUIDtype">
+        <xsd:restriction base="tns:UUIDtype"/>
+    </xsd:simpleType>
+
+    <xsd:element name="UserSystemUUID" type="tns:UserSystemUUIDtype"/>
+    <xsd:simpleType name="UserSystemUUIDtype">
+        <xsd:restriction base="tns:UUIDtype"/>
+    </xsd:simpleType>
+
+    <xsd:element name="UserUUID" type="tns:UserUUIDtype"/>
+    <xsd:simpleType name="UserUUIDtype">
+        <xsd:restriction base="tns:UUIDtype"/>
+    </xsd:simpleType>
+
+    <xsd:element name="OnBehalfOfUser" type="tns:OnBehalfOfUserType"/>
+    <xsd:simpleType name="OnBehalfOfUserType">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="CallersServiceCallIdentifier" type="tns:CallersServiceCallIdentifierType"/>
+    <xsd:simpleType name="CallersServiceCallIdentifierType">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="AccountingInfo" type="tns:AccountingInfoType"/>
+    <xsd:simpleType name="AccountingInfoType">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="255"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="UUIDtype">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

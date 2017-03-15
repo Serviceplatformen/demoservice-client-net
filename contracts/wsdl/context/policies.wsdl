@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/Security/Policy"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+
+    <wsp:Policy Name="policies.wsdl#ServiceplatformBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:PolicyReference URI="#ClientContextTransportBindingPolicy"/>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+
+    <wsp:Policy wsu:Id="ServiceplatformBindingPolicy">
+        <wsp:ExactlyOne>
+            <wsp:PolicyReference URI="#ClientContextTransportBindingPolicy"/>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+
+    <wsp:Policy wsu:Id="ClientContextTransportBindingPolicy">
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+            <wsp:Policy>
+                <sp:TransportToken>
+                    <wsp:Policy>
+                        <sp:HttpsToken>
+                            <wsp:Policy>
+                                <sp:RequireClientCertificate/>
+                            </wsp:Policy>
+                        </sp:HttpsToken>
+                    </wsp:Policy>
+                </sp:TransportToken>
+                <sp:AlgorithmSuite>
+                    <wsp:Policy>
+                        <sp:Basic256Sha256/>
+                    </wsp:Policy>
+                </sp:AlgorithmSuite>
+            </wsp:Policy>
+        </sp:TransportBinding>
+    </wsp:Policy>
+</wsdl:definitions>

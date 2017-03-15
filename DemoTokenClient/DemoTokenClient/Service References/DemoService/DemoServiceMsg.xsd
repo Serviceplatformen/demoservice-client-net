@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:callctx="http://serviceplatformen.dk/xml/schemas/CallContext/1/" xmlns:tns="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/" xmlns:authctx="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/" xmlns:invctx="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/" elementFormDefault="qualified" targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="sp/CallContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/CallContext/1/" />
+  <xsd:import schemaLocation="sp/AuthorityContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/" />
+  <xsd:import schemaLocation="sp/InvocationContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/" />
+  <xsd:complexType name="CallDemoServiceRequestType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="callctx:CallContext" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="authctx:AuthorityContext" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="invctx:InvocationContext" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="messageString" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CallDemoServiceResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" name="responseString" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CallDemoServiceRequest" type="tns:CallDemoServiceRequestType" />
+  <xsd:element name="CallDemoServiceResponse" type="tns:CallDemoServiceResponseType" />
+</xsd:schema>
