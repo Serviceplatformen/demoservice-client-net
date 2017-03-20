@@ -5,7 +5,7 @@ The intent of this project is to:
 2. Serve as an example on how to implement and configure a client to KOMBIT Serviceplatformen for each of its supported
    security models.
 
-## TARGET 
+## TARGET AUDIENCE
 
 This file is targeted at C#/.net developers who implement integrations to Serviceplatformen.
 
@@ -14,6 +14,7 @@ This file is targeted at C#/.net developers who implement integrations to Servic
 ### PREREQUISITES
 
 * .NETFramework 4.5.2.
+* Visual Studio 2016 (to build the code only)
 
 The client is fully configured and should work as is.
 
@@ -28,7 +29,7 @@ The client is fully configured and should work as is.
 
 To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 
-### CERTIFICATE
+### CHANGE CERTIFICATE
 
 To connect to the KOMBIT Serviceplatformen clients need certificates. Those certificates will installed automatically if you run `run.bat`.
 Or you can install them manually. Certificates are stored under `/certificates` folder which contains two folders: personal and trustedPeople.
