@@ -24,13 +24,13 @@ The client is fully configured and should work as is.
 2. Run the client by executing `run.bat`.
 3. Follow the instructions written in the console.
 
-
 ### BUILD
 
 To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 
 ### CHANGE CERTIFICATE
 
+It may be desirable for a new Serviceplatformen user system to verify that a connection is possible using their own certificate.
 To connect to the KOMBIT Serviceplatformen clients need certificates. Those certificates will installed automatically if you run `run.bat`.
 Or you can install them manually. Certificates are stored under `/certificates` folder which contains two folders: personal and trustedPeople.
 To install certificates:
@@ -38,13 +38,15 @@ To install certificates:
     ```bash
     certutil -p *PASSWORD* -importpfx client.pfx
     ```
-    > You can find `*PASSWORD*` in `run.bat`. 
+    > `*PASSWORD*` for current setup is `wRFsRP63H3kNEhDU`. This password should be adjusted to the password for 
+	> the certificate that have changed to. 
+	> If another certificate 
 - TrustedPeople: There are two certificates which can be installed by:
     1. Double click on certificate.
     2. Chose: `Install certificate`.
     3. Change store location to: `Local Machine` and press 'Next'.
     4. Allow program to made changes to the computer.
-    5. Change certificate location to: `Place all certificates in the followinf store` and click 'Browse...'.
+    5. Change certificate location to: `Place all certificates in the following store` and click 'Browse...'.
     6. In the list find `Trusted People` and click 'OK'.
     7. 'Next' -> 'Finish' -> 'OK'.
 
