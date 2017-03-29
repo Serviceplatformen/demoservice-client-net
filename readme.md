@@ -24,28 +24,26 @@ To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 
 ### EXECUTION
 
-1. Start CMD with administrator permissions.
+1. Start a Command Prompt with administrator permissions.
 2. Run the client by executing `run.bat`.
 3. Follow the instructions written in the console.
 
 ### CHANGE CERTIFICATE
 
 It may be desirable for a new Serviceplatformen user system to verify that a connection is possible using their own certificate.
-To connect to the KOMBIT Serviceplatformen clients need certificates. Those certificates will installed automatically if you run `run.bat`.
-Or you can install them manually. Certificates are stored under `/certificates` folder which contains two folders: personal and trustedPeople.
-To install certificates:
-- Personal: We have to install private key so we should install certificate from keystore. Here is CMD tool which can do it:
+In order to connect to KOMBIT Serviceplatformen, the clients need certificates. These certificates are installed automatically with the command `run.bat`, 
+or they can be installed manually. Certificates are stored under the `/certificates` folder which contains the two folders `/personal` and `/trustedPeople`.
+To install the certificates:
+- Personal: To install the private key, the certificate from the keystore should be installed. Here is a Command Prompt tool that can do it:
     ```bash
     certutil -p *PASSWORD* -importpfx client.pfx
     ```
-    > `*PASSWORD*` for current setup is `wRFsRP63H3kNEhDU`. This password should be adjusted to the password for 
-	> the certificate that have changed to. 
-	> If another certificate 
-- TrustedPeople: There are two certificates which can be installed by:
+    > `*PASSWORD*` for current setup is `wRFsRP63H3kNEhDU`. This password should be adjusted to the password for the new certificate.
+- TrustedPeople: The two certificates can be installed by:
     1. Double click on certificate.
     2. Chose: `Install certificate`.
     3. Change store location to: `Local Machine` and press 'Next'.
-    4. Allow program to made changes to the computer.
+    4. Allow program to make changes.
     5. Change certificate location to: `Place all certificates in the following store` and click 'Browse...'.
     6. In the list find `Trusted People` and click 'OK'.
     7. 'Next' -> 'Finish' -> 'OK'.
