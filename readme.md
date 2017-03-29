@@ -18,15 +18,15 @@ This file is targeted at C#/.net developers who implement integrations to Servic
 
 The client is fully configured and should work as is.
 
+### BUILD
+
+To build application, go to visual studio: `Build` -> `Rebuild Solution`.
+
 ### EXECUTION
 
 1. Start CMD with administrator permissions.
 2. Run the client by executing `run.bat`.
 3. Follow the instructions written in the console.
-
-### BUILD
-
-To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 
 ### CHANGE CERTIFICATE
 
