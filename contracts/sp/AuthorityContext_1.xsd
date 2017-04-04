@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            version="1.0"
+            targetNamespace="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/">
+
+    <xsd:element name="AuthorityContext" type="tns:AuthorityContextType"/>
+
+    <xsd:complexType name="AuthorityContextType">
+        <xsd:all>
+            <xsd:element name="MunicipalityCVR" type="tns:CVRNumber" minOccurs="1" maxOccurs="1"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:simpleType name="CVRNumber">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

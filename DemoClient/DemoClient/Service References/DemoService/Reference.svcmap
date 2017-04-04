@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="afd12840-9755-4f72-ab3d-9db1240ddf90" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\Users\guest-misi\Trunk\demoServiceNetClient\Clients\net-client\contracts\com.systematic.kombit.DemoService-contracts.demo.dev-wsdl\wsdl\context\DemoService.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="policies.wsdl" MetadataType="Wsdl" ID="2dcae53e-e835-464a-9006-f1e14f69cbcc" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/wsdl/context/policies.wsdl" />
+    <MetadataFile FileName="InvocationContext_1.xsd" MetadataType="Schema" ID="7e12573f-26d3-460a-9ad8-86c43c1de032" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/InvocationContext_1.xsd" />
+    <MetadataFile FileName="AuthorityContext_1.xsd" MetadataType="Schema" ID="d2980768-be2b-4fb8-bb85-0f906b3684de" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/AuthorityContext_1.xsd" />
+    <MetadataFile FileName="CallContext_1.xsd" MetadataType="Schema" ID="4f37b5b3-508f-48cf-bf65-550d5708763d" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/CallContext_1.xsd" />
+    <MetadataFile FileName="DemoServiceMsg.xsd" MetadataType="Schema" ID="e2b34a2b-9412-4506-aa9a-ebec0ed2bde3" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/DemoServiceMsg.xsd" />
+    <MetadataFile FileName="ServiceplatformFault_1.xsd" MetadataType="Schema" ID="bafc08f2-64fd-45b6-82bc-c4d00d20979c" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/ServiceplatformFault_1.xsd" />
+    <MetadataFile FileName="ServiceplatformFaultMessage.wsdl" MetadataType="Wsdl" ID="a7d80df0-a474-473f-81ed-9eab951b2b93" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/ServiceplatformFaultMessage_1.wsdl" />
+    <MetadataFile FileName="DemoService.wsdl" MetadataType="Wsdl" ID="15532426-29f7-4ebc-bd99-804a685bd72d" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/wsdl/context/DemoService.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

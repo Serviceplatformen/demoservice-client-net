@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+        xmlns:spf="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/"
+        targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/"
+        name="DemoService">
+
+    <wsdl:import namespace="http://serviceplatformen.dk/xml/wsdl/soap11/Security/Policy"
+                 location="policies.wsdl"/>
+
+    <wsdl:import namespace="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/"
+                 location="../../sp/ServiceplatformFaultMessage_1.wsdl"/>
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/">
+            <xsd:include schemaLocation="../../DemoServiceMsg.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="callDemoServiceRequestMessage">
+        <wsdl:part name="request" element="tns:CallDemoServiceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="callDemoServiceResponseMessage">
+        <wsdl:part name="response" element="tns:CallDemoServiceResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="DemoPortType">
+        <wsdl:operation name="callDemoService">
+            <wsdl:input message="tns:callDemoServiceRequestMessage"/>
+            <wsdl:output message="tns:callDemoServiceResponseMessage"/>
+            <wsdl:fault name="ServiceplatformFault" message="spf:ServiceplatformFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="DemoBinding" type="tns:DemoPortType">
+        <wsp:PolicyReference URI="policies.wsdl#ServiceplatformBindingPolicy"/>
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="callDemoService">
+            <soap:operation soapAction="http://serviceplatformen.dk/xml/wsdl/soap11/SP/Demo/1/callDemoService"/>
+            <wsdl:input>
+                <soap:body parts="request" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="response" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceplatformFault">
+                <soap:fault name="ServiceplatformFault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="DemoService">
+        <wsdl:port name="DemoPort" binding="tns:DemoBinding">
+            <soap:address location="https://localhost:8080/service/SP/Demo/1"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

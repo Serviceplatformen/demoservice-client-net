@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/" name="ServiceplatformFaultMessage" targetNamespace="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/">
+      <xsd:include schemaLocation="ServiceplatformFault_1.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ServiceplatformFault">
+    <wsdl:part name="error" element="tns:ServiceplatformFault" />
+  </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/" elementFormDefault="qualified" targetNamespace="http://serviceplatformen.dk/xml/schemas/ServiceplatformFault/1/" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="ServiceplatformFault" type="tns:ServiceplatformFaultType" />
+  <xsd:complexType name="ServiceplatformFaultType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="ErrorList" type="tns:ErrorListType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorListType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="Error" type="tns:ErrorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xsd:string" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="ErrorText" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
