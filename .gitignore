@@ -1,13 +1,6 @@
 # git ls-files --others --exclude-from=.git/info/exclude
 # Lines that start with '#' are comments.
 
-########################################################################
-# BE CAREFUL WITH NEW RULES! THEY APPLY GLOBALLY TO THE WHOLE PROJECT! #
-#                                                                      #
-# Instead you should probably limit the scope and create a .gitignore  #
-# in the directory of the specific module you want to affect.          #
-########################################################################
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
