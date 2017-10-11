@@ -15,6 +15,7 @@ This file is targeted at C#/.net developers who implement integrations to Servic
 
 * .NETFramework 4.5.2.
 * Visual Studio 2016 (to build the code only)
+* Microsoft Build Tools 2015 (In case you don't want to install Visual studio but want to execute clients)
 
 The client is fully configured and should work as is.
 
