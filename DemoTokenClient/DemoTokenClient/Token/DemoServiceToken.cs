@@ -5,14 +5,13 @@ using System.Net.Security;
 using System.ServiceModel;
 using DemoTokenClient.DemoService;
 
-namespace DemoTokenClient
+namespace DemoTokenClient.Token
 {
     public class DemoServiceToken
     {
-        public string CallDemoServiceWithToken(string message, string endpointURL)
+        public string CallDemoServiceWithToken(string message, string endpointUrl)
         {
-            var token = TokenFetcher.IssueToken(ConfigVariables.ServiceEntityID);
-
+            var token = TokenFetcher.IssueToken(ConfigVariables.ServiceEntityId);
             callDemoServiceRequest request = new callDemoServiceRequest
             {
                 CallDemoServiceRequest1 = new CallDemoServiceRequestType
@@ -21,9 +20,7 @@ namespace DemoTokenClient
                     CallContext = GetCallContext()
                 }
             };
-
-            DemoPortType channel = CreateChannel(token, endpointURL);
-
+            DemoPortType channel = CreateChannel(token, endpointUrl);
             // Security protocols supported by the DemoService
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 |
                                                    SecurityProtocolType.Ssl3;
@@ -36,19 +33,21 @@ namespace DemoTokenClient
             return response.CallDemoServiceResponse1.responseString;
         }
 
-        private DemoPortType CreateChannel(SecurityToken token, string endpointURL)
+        private DemoPortType CreateChannel(SecurityToken token, string endpointUrl)
         {
             DemoPortTypeClient demoPortType = new DemoPortTypeClient();
 
             // Disable revocation checking (do not use in production).
             // Should be uncommented if you intent to call DemoService locally.
             // demoPortType.ClientCredentials.ServiceCertificate.Authentication.RevocationMode = System.Security.Cryptography.X509Certificates.X509RevocationMode.NoCheck;
-
-            EndpointIdentity identity = EndpointIdentity.CreateDnsIdentity(ConfigVariables.ServiceCertAlias);
-            EndpointAddress endpointAddress = endpointURL != null ? new EndpointAddress(new Uri(endpointURL), identity) : new EndpointAddress(demoPortType.Endpoint.Address.Uri, identity);
-
+            EndpointIdentity identity = EndpointIdentity.CreateDnsIdentity(ConfigVariables.ServiceCertificateAlias);
+            EndpointAddress endpointAddress = endpointUrl != null ? new EndpointAddress(new Uri(endpointUrl), identity) : new EndpointAddress(demoPortType.Endpoint.Address.Uri, identity);
             demoPortType.Endpoint.Address = endpointAddress;
-            demoPortType.ClientCredentials.ClientCertificate.Certificate = CertificateLoader.LoadCertificateFromMyStore(ConfigVariables.ClientCertThumbprint);
+            var certificate = CertificateLoader.LoadCertificate(
+                ConfigVariables.ClientCertificateStoreName,
+                ConfigVariables.ClientCertificateStoreLocation,
+                ConfigVariables.ClientCertificateThumbprint);
+            demoPortType.ClientCredentials.ClientCertificate.Certificate = certificate;
             demoPortType.Endpoint.Contract.ProtectionLevel = ProtectionLevel.Sign;
 
             return demoPortType.ChannelFactory.CreateChannelWithIssuedToken(token);

@@ -6,16 +6,21 @@ using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Security;
 
-namespace DemoTokenClient
+namespace DemoTokenClient.Token
 {
-    public class TokenFetcher
+    public static class TokenFetcher
     {
         public static SecurityToken IssueToken(string entityId)
         {
-            return SendRequestSecurityTokenRequest(new Uri(entityId).AbsoluteUri, CertificateLoader.LoadCertificateFromMyStore(ConfigVariables.ClientCertThumbprint), ConfigVariables.CVR);
+            var certificate = CertificateLoader.LoadCertificate(
+                ConfigVariables.ClientCertificateStoreName, 
+                ConfigVariables.ClientCertificateStoreLocation, 
+                ConfigVariables.ClientCertificateThumbprint);
+            var absoluteUri = new Uri(entityId).AbsoluteUri;
+            return SendSecurityTokenRequest(absoluteUri, certificate, ConfigVariables.Cvr);
         }
 
-        private static SecurityToken SendRequestSecurityTokenRequest(string appliesTo, X509Certificate2 clientCertificate, string cvr)
+        private static SecurityToken SendSecurityTokenRequest(string appliesTo, X509Certificate2 clientCertificate, string cvr)
         {
             var rst = new RequestSecurityToken
             {
@@ -23,7 +28,7 @@ namespace DemoTokenClient
                 RequestType = RequestTypes.Issue,
                 TokenType = "http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0",
                 KeyType = KeyTypes.Asymmetric,
-                Issuer = new EndpointReference(ConfigVariables.STSIssuer),
+                Issuer = new EndpointReference(ConfigVariables.StsIssuer),
                 UseKey = new UseKey(new X509SecurityToken(clientCertificate))
             };
 
@@ -36,13 +41,17 @@ namespace DemoTokenClient
 
         private static IWSTrustChannelContract GenerateStsCertificateClientChannel(X509Certificate2 clientCertificate)
         {
-            var stsAddress = new EndpointAddress(new Uri(ConfigVariables.STSEndpoint), EndpointIdentity.CreateDnsIdentity(ConfigVariables.STSCertAlias));
+            var stsAddress = new EndpointAddress(new Uri(ConfigVariables.StsEndpoint), EndpointIdentity.CreateDnsIdentity(ConfigVariables.StsCertificateAlias));
             var binding = new MutualCertificateWithMessageSecurityBinding(null);
             var factory = new WSTrustChannelFactory(binding, stsAddress);
 
             factory.TrustVersion = TrustVersion.WSTrust13;
             factory.Credentials.ClientCertificate.Certificate = clientCertificate;
-            factory.Credentials.ServiceCertificate.ScopedCertificates.Add(stsAddress.Uri, CertificateLoader.LoadCertificateFromTrustedPeopleStore(ConfigVariables.STSCertThumbprint));
+            var certificate = CertificateLoader.LoadCertificate(
+                ConfigVariables.StsCertificateStoreName,
+                ConfigVariables.StsCertificateStoreLocation,
+                ConfigVariables.StsCertificateThumbprint);
+            factory.Credentials.ServiceCertificate.ScopedCertificates.Add(stsAddress.Uri, certificate);
             factory.Credentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
             // Disable revocation checking (do not use in production)
             // Should be uncommented if you intent to call DemoService locally.

@@ -1,12 +1,13 @@
 ﻿using System;
+using DemoTokenClient.Token;
 
 namespace DemoTokenClient
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string endpointURL = null;
+            string endpointUrl = null;
             string message;
             bool pressButtonForExit = true;
 
@@ -19,7 +20,11 @@ namespace DemoTokenClient
 
                 if (args.Length == 2)
                 {
-                    endpointURL = args[1];
+                        endpointUrl = args[1];
+                    }
+                    else
+                    {
+                        endpointUrl = "https://exttest.serviceplatformen.dk:443/service/SP/Demo/1/";
                 }
             }
             else
@@ -29,7 +34,7 @@ namespace DemoTokenClient
             }
 
             Console.WriteLine("\nCalling DemoService with token...");
-            string demoServiceResponse = new DemoServiceToken().CallDemoServiceWithToken(message, endpointURL);
+                string demoServiceResponse = new DemoServiceToken().CallDemoServiceWithToken(message, endpointUrl);
             Console.WriteLine("Response from DemoService:\n");
             Console.WriteLine(demoServiceResponse);
 
