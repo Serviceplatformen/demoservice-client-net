@@ -4,7 +4,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Security;
 using System.ServiceModel.Security.Tokens;
 
-namespace DemoTokenClient
+namespace DemoTokenClient.Token
 {
     public class MutualCertificateWithMessageSecurityBinding : CustomBinding
     {
@@ -22,10 +22,12 @@ namespace DemoTokenClient
             var encodingBinding = CreateEncodingBindingElement(encodingElementFunc);
             var securityBinding = CreateSecurityBindingElement();
 
-            var bindings = new BindingElementCollection();
-            bindings.Add(securityBinding);
-            bindings.Add(encodingBinding);
-            bindings.Add(transportBinding);
+            var bindings = new BindingElementCollection
+            {
+                securityBinding,
+                encodingBinding,
+                transportBinding
+            };
 
             return bindings;
         }
