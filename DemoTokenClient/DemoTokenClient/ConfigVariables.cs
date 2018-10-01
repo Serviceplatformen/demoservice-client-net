@@ -28,10 +28,10 @@ namespace DemoTokenClient
         public const string StsEndpoint = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/services/kombittrust/14/certificatemixed";
 
         // The alias used for STS endpoint identity check.
-        public const string StsCertificateAlias = "KOMBIT Støttesystemer-T (funktionscertifikat)";
+	public const string StsCertificateAlias = "test-ekstern-adgangsstyring (funktionscertifikat)";
 
         // Thumbprint of the certificate used for signing by STS.
-        public const string StsCertificateThumbprint = "3a 10 3c f6 0a 9d 97 7b a5 a4 99 3e 06 d8 c9 ba 36 f2 58 3e";
+        public const string StsCertificateThumbprint = "81 08 49 10 37 F7 7A 8F 9F 90 38 A0 FF ED 9D 2A 58 0B 84 91";
 
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
 
