@@ -8,19 +8,21 @@ certutil -addstore -user -f Root "certificates\trustedPeople\03_trust2408_oces_p
 certutil -addstore -user -f Root "certificates\trustedPeople\04_trust2408_oces_ca_ii.cer"
 certutil -addstore -user -f Root "certificates\trustedPeople\05_trust2408_oces_ca_iii.cer"
 certutil -addstore -user -f My "certificates\trustedPeople\06_sts.cer"
-certutil -addstore -user -f My "certificates\trustedPeople\07_kombit_sp_signing_test.p7b"
-certutil -importpfx -user -p wRFsRP63H3kNEhDU "certificates\personal\08_kombit_sp_t_demo_serv_funktionscertifikat_.p12"
+certutil -addstore -user -f My "certificates\trustedPeople\07_kombit_sp_signing_test_2019-09-13.p7b"
+certutil -addstore -user -f My "certificates\trustedPeople\08_kombit_sp_signing_test_2022-05-21.cer"
+certutil -importpfx -user -p wRFsRP63H3kNEhDU "certificates\personal\09_kombit_sp_t_demo_serv_funktionscertifikat_.p12"
 
 rem This path should be updated appropriately.
 set "msbuild=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\amd64\MSBuild.exe"
-set "vs2017Link=https://visualstudio.microsoft.com/downloads"
-set "msbuildLink=https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15"
+set "vsLink=https://visualstudio.microsoft.com/downloads"
+set "msbuildLink=https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools"
 if not exist "%msbuild%" (
   echo [101;93m ERROR [0m MSBuild was not found at path ["%msbuild%"].
   echo This means that the demo client cannot be compiled.
   echo You need to install either:
-  echo  1. MS Visual Studio 2015 or later: "%vs2017Link%"
-  echo  2. the .NET build tools: "%msbuildLink%"
+  echo  1. MS Visual Studio 2015 or later: "%vsLink%"
+  echo  2. The .NET build tools: "%msbuildLink%"
+  echo     Make sure to add all the ".NET Framework 4.6.* targeting packs" and the "NuGet package manager".
   goto :exit
 )
 

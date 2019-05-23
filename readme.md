@@ -14,8 +14,8 @@ This file is targeted at C#/.net developers who implement integrations to Servic
 ### PREREQUISITES
 
 * .NETFramework 4.5.2.
-* Visual Studio 2016 (to build the code only)
-* Microsoft Build Tools 2015 (In case you don't want to install Visual studio but want to execute clients)
+* Microsoft Build Tools 2015 or later (In case you don't want to install Visual studio but want to execute clients)
+* Visual Studio 2016 or later (Only needed if you want to hack on the code)
 
 The client is fully configured and should work as is.
 
@@ -25,7 +25,7 @@ To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 
 ### EXECUTION
 
-1. Start a Command Prompt with administrator permissions.
+1. Start a Command Prompt.
 2. Run the client by executing `run.bat`.
 3. Follow the instructions written in the console.
 
@@ -52,8 +52,8 @@ To install the certificates:
 ## CONTENT
 
 * `readme.md`: This file
-* `run.bat`: Installs certificates and runs .net clients.
+* `run.bat`: Installs certificates, builds and runs the .NET clients.
 * `/certificates`: Contains certificates which should be installed to run clients.
-* `/contracts`: Contains wsdl and xsd schemas used to connect to the service.
+* `/contracts`: Contains wsdl and xsd schemas used to connect to the demo service.
 * `/DemoClient`: Contains the source code and resources of the context client.
-* `/DemoTokenClient`: Contains the source code and resources of the token client.run
+* `/DemoTokenClient`: Contains the source code and resources of the token client.
