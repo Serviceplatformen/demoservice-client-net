@@ -1,11 +1,11 @@
 ﻿namespace DemoClient
 {
     // TO_BE_MODIFIED
-    // All these constants can be modified to configure client.
-    // See document TEN0002 for details.
+    // All these constants can be modified to configure the client.
+    // See the document "Programmers Guide - Serviceplatformen" for details.
     static class ConfigVariables
     {
-        // Below are the four mandatory values that are needed as part of the InvocationContext. See document TEN0002 for details.
+        // Below are the four mandatory values that are needed as part of the InvocationContext.
         // In order to run this sample code you must change the values to match your own connection agreement and service agreement.
         public const string ServiceAgreementUUID = "17a44431-526a-416c-bb66-bd262049e751";
         public const string UserSystemUUID = "50be05bb-f31a-4673-9a93-d740e7397b16";

@@ -1,5 +1,5 @@
 ## 1. General information
-For general information see document TEN0002 for details.
+For general information see the document "Programmers Guide - Serviceplatformen" for details.
 
 ## 2. Configuration:
 To configure the client the values that need to be changed have a comment attached

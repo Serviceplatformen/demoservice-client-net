@@ -4,7 +4,7 @@ namespace DemoTokenClient
 {
     // TO_BE_MODIFIED
     // All these constants can be modified to configure the client.
-    // See document TEN0002 for details.
+    // See the document "Programmers Guide - Serviceplatformen" for details.
     static class ConfigVariables
     {
         // The alias used for Serviceplatformen endpoint identity check.
