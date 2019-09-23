@@ -10,8 +10,8 @@ namespace DemoTokenClient
         // The alias used for Serviceplatformen endpoint identity check.
         public const string ServiceCertificateAlias = "kombit-sp-signing-test (funktionscertifikat)";
 
-        // Thumbprint of the client certificate to call STS and Serviceplatformen.
-        public const string ClientCertificateThumbprint = "3f 22 72 a1 83 37 f4 1a 60 86 c7 ef 02 c0 86 11 2c cb ef 2f";
+        // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
+        public const string ClientCertificateThumbprint = "9B 6B 8E 98 30 9E 53 89 24 35 BA AB 1D 0B 86 C4 F3 38 A1 DF";
 
         public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
 
@@ -30,7 +30,7 @@ namespace DemoTokenClient
         // The alias used for STS endpoint identity check.
 	public const string StsCertificateAlias = "test-ekstern-adgangsstyring (funktionscertifikat)";
 
-        // Thumbprint of the certificate used for signing by STS.
+        // SHA-1 thumbprint of the certificate used for signing by STS.
         public const string StsCertificateThumbprint = "81 08 49 10 37 F7 7A 8F 9F 90 38 A0 FF ED 9D 2A 58 0B 84 91";
 
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
