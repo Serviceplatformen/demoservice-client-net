@@ -11,6 +11,9 @@ namespace DemoTokenClient.Token
     {
         public string CallDemoServiceWithToken(string message, string endpointUrl)
         {
+            // Security protocols supported by the DemoService
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            
             var token = TokenFetcher.IssueToken(ConfigVariables.ServiceEntityId);
             callDemoServiceRequest request = new callDemoServiceRequest
             {
@@ -21,9 +24,6 @@ namespace DemoTokenClient.Token
                 }
             };
             DemoPortType channel = CreateChannel(token, endpointUrl);
-            // Security protocols supported by the DemoService
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 |
-                                                   SecurityProtocolType.Ssl3;
 
             // Disable server certificate check when using self-signed certificate (do not use in production).
             // Should be uncommented if you intent to call DemoService locally.

@@ -24,6 +24,9 @@ namespace DemoClient
 
         public string CallDemoServiceWithInvocationContext(string message, string endpointURL)
         {
+            // Security protocols supported by the DemoService.
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             DemoPortTypeClient demoPortType = new DemoPortTypeClient();
             if (endpointURL != null)
             {
@@ -41,9 +44,6 @@ namespace DemoClient
                     InvocationContext = GetInvocationContext()
                 }
             };
-
-            // Security protocols supported by the DemoService.
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 	    
             // Disable server certificate check when using self-signed certificate (do not use in production).
             // Should be uncommented if you intent to call DemoService locally.
