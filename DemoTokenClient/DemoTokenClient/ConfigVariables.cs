@@ -31,7 +31,7 @@ namespace DemoTokenClient
 	public const string StsCertificateAlias = "test-ekstern-adgangsstyring (funktionscertifikat)";
 
         // SHA-1 thumbprint of the certificate used for signing by STS.
-        public const string StsCertificateThumbprint = "81 08 49 10 37 F7 7A 8F 9F 90 38 A0 FF ED 9D 2A 58 0B 84 91";
+        public const string StsCertificateThumbprint = "70:02:CF:22:1D:1D:39:79:EC:A6:23:59:9E:43:E0:B6:B4:C8:92:0C";
 
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
 
@@ -44,6 +44,6 @@ namespace DemoTokenClient
         // Below are some of the optional values that can be used in the CallContext.
         public const string AccountingInfo = ".Net DemoService sample call";
         public const string OnBehalfOfUser = "Jens Andersen";
-        public const string CallersServiceCallIdentifier = "DemoPortType.test.uuid";
+        public const string CallersServiceCallIdentifier = "123456789-Token";
     }
 }

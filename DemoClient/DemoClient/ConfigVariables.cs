@@ -16,7 +16,7 @@
         // They are also used with the optional CallContext, which can be sent along with an AuthorityContext.
         public const string AccountingInfo = "ed8aea2d-a6a4-40a1-bf5e-6adf583254ff";
         public const string OnBehalfOfUser = "behalfOfUserDemoServicePortType.test.uuid";
-        public const string CallersServiceCallIdentifier = ".netDemoClientCall";
+        public const string CallersServiceCallIdentifier = "123456789-Context";
 
         // Below is the CVR number of the municipality involved in the service agreement. Used by the AuthorityContext.
         public const string CVR = "29189846";
