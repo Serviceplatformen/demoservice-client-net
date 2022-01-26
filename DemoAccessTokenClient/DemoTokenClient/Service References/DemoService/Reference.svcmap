@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="67959e65-f0dd-4866-91ab-f2c5abd6f718" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="c:\Users\guest-misi\Trunk\demoServiceNetClient\Clients\net-client\contracts\com.systematic.kombit.DemoService-contracts.demo.dev-wsdl\wsdl\token\DemoService.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceplatformFault_1.xsd" MetadataType="Schema" ID="7aedfa5d-bb5b-45af-80a5-68174998ce7b" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/ServiceplatformFault_1.xsd" />
+    <MetadataFile FileName="InvocationContext_1.xsd" MetadataType="Schema" ID="c164f81d-cc8d-47b3-b4d8-d255b1943ec7" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/InvocationContext_1.xsd" />
+    <MetadataFile FileName="AuthorityContext_1.xsd" MetadataType="Schema" ID="de2b5150-b7c4-4d7a-a40f-3b0a2fb27ce2" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/AuthorityContext_1.xsd" />
+    <MetadataFile FileName="policies.wsdl" MetadataType="Wsdl" ID="d3196708-bf30-4be1-a3bb-da911a315e18" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/wsdl/token/policies.wsdl" />
+    <MetadataFile FileName="DemoServiceMsg.xsd" MetadataType="Schema" ID="62305878-d029-41ea-b7c9-92dcbab001ac" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/DemoServiceMsg.xsd" />
+    <MetadataFile FileName="DemoService.wsdl" MetadataType="Wsdl" ID="18af2a76-10ca-46a7-8265-0bc6180829f7" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/wsdl/token/DemoService.wsdl" />
+    <MetadataFile FileName="CallContext_1.xsd" MetadataType="Schema" ID="c31973bd-e061-47f2-bf13-adaef6e3050b" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/CallContext_1.xsd" />
+    <MetadataFile FileName="ServiceplatformFaultMessage.wsdl" MetadataType="Wsdl" ID="b81a1b66-36f2-4054-b597-07c05f3df7e9" SourceId="1" SourceUrl="file:///c:/Users/guest-misi/Trunk/demoServiceNetClient/Clients/net-client/contracts/com.systematic.kombit.DemoService-contracts.demo.dev-wsdl/sp/ServiceplatformFaultMessage_1.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

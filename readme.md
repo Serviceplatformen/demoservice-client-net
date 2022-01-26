@@ -13,9 +13,9 @@ This file is targeted at C#/.net developers who implement integrations to Servic
 
 ### PREREQUISITES
 
-* .NETFramework 4.5.2.
-* Microsoft Build Tools 2015 or later (In case you don't want to install Visual studio but want to execute clients)
-* Visual Studio 2016 or later (Only needed if you want to hack on the code)
+* .NETFramework 4.7.2.
+* Microsoft Build Tools 2019 or later (In case you don't want to install Visual studio but want to execute clients)
+* Visual Studio 2019 or later (Only needed if you want to hack on the code)
 
 The client is fully configured and should work as is.
 
