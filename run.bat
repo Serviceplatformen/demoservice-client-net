@@ -7,6 +7,7 @@ certutil -addstore -user -f My "certificates\trustedPeople\globalsign_ca_for_sp.
 certutil -addstore -user -f My "certificates\trustedPeople\globalsign_ca_for_sts.cer
 certutil -addstore -user -f My "certificates\trustedPeople\sp_oces_signing.cer
 certutil -addstore -user -f My "certificates\trustedPeople\sts_oces_signing.cer
+certutil -addstore -user -f My "certificates\trustedPeople\star.serviceplatformen.dk.cer
 
 
 
