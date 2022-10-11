@@ -11,7 +11,8 @@ namespace DemoTokenClient
         public const string ServiceCertificateAlias = "kombit-sp-signing-test (funktionscertifikat)";
 
         // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
-        public const string ClientCertificateThumbprint = "9B 6B 8E 98 30 9E 53 89 24 35 BA AB 1D 0B 86 C4 F3 38 A1 DF";
+        //public const string ClientCertificateThumbprint = "9B 6B 8E 98 30 9E 53 89 24 35 BA AB 1D 0B 86 C4 F3 38 A1 DF";
+        public const string ClientCertificateThumbprint = "60 30 C3 BB 8A DF 04 92 D2 98 5C AD D0 BA BE 66 EA 5B 59 AE";
 
         public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
 
