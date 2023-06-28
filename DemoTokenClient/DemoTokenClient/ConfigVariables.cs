@@ -8,17 +8,16 @@ namespace DemoTokenClient
     static class ConfigVariables
     {
         // The alias used for Serviceplatformen endpoint identity check.
-        public const string ServiceCertificateAlias = "kombit-sp-signing-test (funktionscertifikat)";
+        
+        public const string ServiceCertificateAlias = "SP_EXTTEST_Signing_1";
+        public const string ClientCertificateThumbprint = "A8 2C EA 2B 27 ED B5 EB 7D D4 F4 38 57 FD 70 A6 AC 49 16 0B";
+                                    
 
-        // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
-        //public const string ClientCertificateThumbprint = "9B 6B 8E 98 30 9E 53 89 24 35 BA AB 1D 0B 86 C4 F3 38 A1 DF";
-        public const string ClientCertificateThumbprint = "60 30 C3 BB 8A DF 04 92 D2 98 5C AD D0 BA BE 66 EA 5B 59 AE";
-
-        public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
+        public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;  
 
         public const StoreName ClientCertificateStoreName = StoreName.My;
 
-        // Entity ID for the Serviceplatform service to fetch token for and call.
+        // Entity ID for the Serviceplatform service to fetch token for and call 
         // This ID can be found in the service contract package from the Serviceplatform as 'service.entityID' inside /sp/service.properties.
         public const string ServiceEntityId = "http://demo.prod-serviceplatformen.dk/service/DemoService/1";
 
@@ -29,11 +28,12 @@ namespace DemoTokenClient
         public const string StsEndpoint = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/services/kombittrust/14/certificatemixed";
 
         // The alias used for STS endpoint identity check.
-	public const string StsCertificateAlias = "test-ekstern-adgangsstyring (funktionscertifikat)";
+	    public const string StsCertificateAlias = "ADG_EXTTEST_Adgangsstyring_1";
+
 
         // SHA-1 thumbprint of the certificate used for signing by STS.
-        public const string StsCertificateThumbprint = "70:02:CF:22:1D:1D:39:79:EC:A6:23:59:9E:43:E0:B6:B4:C8:92:0C";
-
+        public const string StsCertificateThumbprint = "0A:A7:A1:93:F1:8D:09:5F:7E:2C:E0:9D:89:21:78:C9:68:2B:79:24";
+        
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
 
         public const StoreName StsCertificateStoreName = StoreName.My;

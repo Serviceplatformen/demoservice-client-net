@@ -8,13 +8,13 @@ namespace DemoTokenClient
     static class ConfigVariables
     {
         // The alias used for Serviceplatformen endpoint identity check.
-          public const string ServiceCertificateAlias = "kombit-sp-signing-test (funktionscertifikat)";
-        // kombit-sp-signing-test (funktionscertifikat)
-        // public const string ServiceCertificateAlias = "kombit-sp-t-demo-serv (funktionscertifikat)";
+        
+        public const string ServiceCertificateAlias = "SP_EXTTEST_Signing_1";
 
         // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
-        //public const string ClientCertificateThumbprint = "9B 6B 8E 98 30 9E 53 89 24 35 BA AB 1D 0B 86 C4 F3 38 A1 DF";
-        public const string ClientCertificateThumbprint = "60 30 C3 BB 8A DF 04 92 D2 98 5C AD D0 BA BE 66 EA 5B 59 AE";
+        
+        public const string ClientCertificateThumbprint = "A8 2C EA 2B 27 ED B5 EB 7D D4 F4 38 57 FD 70 A6 AC 49 16 0B";
+
 
         public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
 
@@ -32,13 +32,15 @@ namespace DemoTokenClient
         public const string StsEndpoint = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/services/kombittrust/14/certificatemixed";
 
         // The alias used for STS endpoint identity check.
-        public const string StsCertificateAlias = "test-ekstern-adgangsstyring (funktionscertifikat)";
-       // public const string StsCertificateAlias = "eksterntest-stoettesystemerne.dk";
+       
+        public const string StsCertificateAlias = "ADG_EXTTEST_Adgangsstyring_1";
+
+        // public const string StsCertificateAlias = "eksterntest-stoettesystemerne.dk";
         // test-ekstern-adgangsstyring (funktionscertifikat)
         // SHA-1 thumbprint of the certificate used for signing by STS.
-        //   public const string StsCertificateThumbprint = "81 08 49 10 37 F7 7A 8F 9F 90 38 A0 FF ED 9D 2A 58 0B 84 91";
-        //public const string StsCertificateThumbprint = "A3:38:3B:25:1F:FC:09:5D:57:CE:8A:41:E8:23:BD:AA:9B:E8:50:79";
-        public const string StsCertificateThumbprint = "70:02:CF:22:1D:1D:39:79:EC:A6:23:59:9E:43:E0:B6:B4:C8:92:0C";
+        
+        public const string StsCertificateThumbprint = "0A:A7:A1:93:F1:8D:09:5F:7E:2C:E0:9D:89:21:78:C9:68:2B:79:24";
+
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
 
         public const StoreName StsCertificateStoreName = StoreName.My;
