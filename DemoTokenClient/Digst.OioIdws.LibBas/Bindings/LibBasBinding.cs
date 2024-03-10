@@ -26,6 +26,9 @@ namespace Digst.OioIdws.LibBas.Bindings
             var transport = new HttpsTransportBindingElement();
             transport.RequireClientCertificate = true;
 
+            // By default the received message size is limited to 65535 bytes, this can be overriden by setting this number parameter (in bytes)
+            transport.MaxReceivedMessageSize = 2097152;
+
             var encoding = new TextMessageEncodingBindingElement();
             // [LIB-BAS] requires SOAP 1.1 and WS-Adressing 1.0
             encoding.MessageVersion = MessageVersion.Soap11WSAddressing10;
