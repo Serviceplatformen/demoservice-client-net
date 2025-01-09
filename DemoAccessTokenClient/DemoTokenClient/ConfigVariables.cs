@@ -29,7 +29,7 @@ namespace DemoTokenClient
         public const string StsIssuer = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/";
         
         // The endpoint of the STS (Secure Token Service).
-        public const string StsEndpoint = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/services/kombittrust/14/certificatemixed";
+        public const string StsEndpoint = "https://n2adgangsstyring.eksterntest-stoettesystemerne.dk/runtime/services/kombittrust/14/certificatemixed";
 
         // The alias used for STS endpoint identity check.
        
