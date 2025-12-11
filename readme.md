@@ -28,6 +28,7 @@ To build application, go to visual studio: `Build` -> `Rebuild Solution`.
 1. Start a Command Prompt.
 2. Run the client by executing `run.bat`.
 3. Follow the instructions written in the console.
+4. testing
 
 ### CHANGE CERTIFICATE
 
