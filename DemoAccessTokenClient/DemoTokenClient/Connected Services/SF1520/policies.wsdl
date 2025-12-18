@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/Security/Policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/Security/Policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy Name="policies.wsdl#ServiceplatformBindingPolicy">
     <wsp:ExactlyOne>
       <wsp:PolicyReference URI="#TokenAsymmetricBindingPolicy" />
@@ -40,8 +40,7 @@
             <wsp:Policy>
               <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToInitiator">
                 <wsp:Policy>
-					<!--Your comment    -->
-					<sp:WssX509V3Token10 />
+                  <sp:WssX509V3Token10 />
                 </wsp:Policy>
               </sp:X509Token>
             </wsp:Policy>

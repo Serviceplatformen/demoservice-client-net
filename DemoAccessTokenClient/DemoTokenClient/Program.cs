@@ -5,31 +5,28 @@ namespace DemoTokenClient
 {
     public class Program
     {
-		public static void Main(string[] args)
-		{
-			try
-			{
-				
-				while(true)					
+        public static void Main(string[] args)
+        {
+            try
+            {
+                while (true)
                 {
-					Console.WriteLine("\nEnter test message or 'q' for exit");
-					string message = Console.ReadLine();
-					if ("q".Equals(message)) {
-						return;
-                    } else {
-						Console.WriteLine("\nEnter error message");
-						string errorMessage = Console.ReadLine();
+                    Console.WriteLine("\nEnter CPR (10 digits) or 'q' for exit");
+                    string cpr = Console.ReadLine();
+                    if ("q".Equals(cpr)) return;
 
-						DemoRestServiceToken client = new DemoRestServiceToken();
-						client.CallService(message, errorMessage);
-                        Console.WriteLine("Test");
-					}
+                    var client = new SF1520SoapServiceToken();
+                    var resp = client.CallPersonLookup(cpr);
+
+                    Console.WriteLine("=== SUCCESS ===");
+                    Console.WriteLine("Fornavn: " + resp?.persondata?.navn?.fornavn);
+                    Console.WriteLine("Efternavn: " + resp?.persondata?.navn?.efternavn);
                 }
-			}
-			catch (Exception exc)
-			{
-				Console.WriteLine(exc.ToString());
-			}
-		} 
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
+        }
     }
 }

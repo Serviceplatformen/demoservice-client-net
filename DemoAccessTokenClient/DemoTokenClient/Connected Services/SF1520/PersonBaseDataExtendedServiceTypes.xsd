@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:cpr="http://serviceplatformen.dk/xml/schemas/cpr/PNR/1/" xmlns:tns="http://serviceplatformen.dk/xml/wsdl/soap11/CPR/PersonBaseDataExtended/5/" elementFormDefault="qualified" targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/CPR/PersonBaseDataExtended/5/" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="persondataType">
+    <xsd:annotation>
+      <xsd:documentation>
+                The field 'alder' is calculated as the time from 'foedselsdato' to the time
+                of asking, without regard to the 'status' of the person.
+                The age of the child is calculated as the time from its birthday (calculated based on 'pnr') to
+                the time of asking, without regard to the 'status' of the child.
+                The field 'antalboernunder18' includes only active children (status: 1, 3, 5 and 7)
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="personnummer" type="cpr:PNRType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="gaeldendePersonnummer" type="cpr:PNRType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="navn" type="tns:navnType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="foedselsdato" type="tns:usikkerhedDatoType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="foedselsregistreringsOplysninger" type="tns:foedselsregistreringOplysningerType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="startdato" type="tns:usikkerhedDatoType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="slutdato" type="tns:usikkerhedDatoType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="alder" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="koen" type="tns:koenType" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="antalBoernUnder18" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="stilling" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="DeltBopælMarkering" type="tns:MarkeringType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="DeltBopælStartDato" type="tns:DatoTidType" />
+      <xsd:element minOccurs="0" name="status" type="tns:statusType" />
+      <xsd:element minOccurs="0" name="separation" type="tns:separationType" />
+      <xsd:element minOccurs="0" name="civilstand" type="tns:civilstandType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="statsborgerskab" type="tns:statsborgerskabType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="umyndiggoerelse" type="tns:umyndiggoerelseType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="forsvindingsdato" type="tns:usikkerhedDatoTidType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adressebeskyttelse" type="tns:beskyttelseType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejviserbeskyttelse" type="tns:beskyttelseType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="markedsfoeringsbeskyttelse" type="tns:beskyttelseType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="tilmeldtNemsms" type="xsd:boolean" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="tilmeldtDigitalpost" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="MarkeringType">
+    <xsd:annotation>
+      <xsd:documentation>  Markering for 
+        Delt bopæl når forældre viser, der har fælles forældremyndighed, har aftalt, at barnet har delt bopæl.  
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:boolean" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DatoTidType">
+    <xsd:annotation>
+      <xsd:documentation>  Startdato for delt bopæl, når der markeres ja til delt bopæl.  
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:dateTime" />
+  </xsd:simpleType>
+  <xsd:simpleType name="koenType">
+    <xsd:annotation>
+      <xsd:documentation>
+                K=female
+                M=male
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="K" />
+      <xsd:enumeration value="M" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="statusTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Status attribute:
+                1 = Aktiv, bopæl i dansk folkeregister
+                3 = Aktiv, speciel vejkode (9900 - 9999) i dansk folkeregister
+                5 = Aktiv, bopæl i grønlandsk folkeregister
+                7 = Aktiv, speciel vejkode (9900 - 9999) i grønlandsk folkeregister
+                20 = Inaktiv, uden bopæl i dansk/grønlandsk folkeregister men tildelt personnummer af skattehensyn
+                (kommunekoderne 0010, 0011, 0012 og 0019)
+                30 = Inaktiv, anulleret personnummer
+                50 = Inaktiv, slettet personnummer ved dobbeltnummer
+                60 = Inaktiv, ændret personnummer ved ændring af fødselsdato og køn CPR Centrale Personregister Side 8
+                af 53
+                70 = Inaktiv, forsvundet
+                80 = Inaktiv, udrejst
+                90 = Inaktiv, død
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:enumeration value="1" />
+      <xsd:enumeration value="3" />
+      <xsd:enumeration value="5" />
+      <xsd:enumeration value="7" />
+      <xsd:enumeration value="20" />
+      <xsd:enumeration value="30" />
+      <xsd:enumeration value="50" />
+      <xsd:enumeration value="60" />
+      <xsd:enumeration value="70" />
+      <xsd:enumeration value="80" />
+      <xsd:enumeration value="90" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="civilstandTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                U = Ugift
+                G = Gift
+                F = Fraskilt
+                E = Enke/enkemand
+                P = Registreret partnerskab
+                O = Ophævet partnerskab
+                L = Længestlevende partner
+                D = Død
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="U" />
+      <xsd:enumeration value="G" />
+      <xsd:enumeration value="F" />
+      <xsd:enumeration value="E" />
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value="O" />
+      <xsd:enumeration value="L" />
+      <xsd:enumeration value="D" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="navnType">
+    <xsd:sequence>
+      <xsd:element name="personadresseringsnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="fornavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mellemnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="efternavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="fornavnMarkering" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mellemnavnMarkering" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="efternavnMarkering" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="navnestartdato" type="tns:usikkerhedDatoTidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="adressedataType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="aktuelAdresse" type="tns:adresseType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udrejseoplysninger" type="tns:udrejseoplysningerType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdresse" type="tns:kontaktAdresseType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="adresseHistorik" type="tns:adresseHistorikType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="adresseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="kommuneCvr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kommunekode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejkode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="husnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="etage" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="sidedoer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="bygningsnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="conavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="lokalitet" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="bynavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="postnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="postdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="standardadresse" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adresseringsnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejadresseringsnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="tilflytningsdato" type="tns:usikkerhedDatoTidType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adr1-supladr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adr2-supladr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adr3-supladr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adr4-supladr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adr5-supladr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="distrikter" type="tns:distrikterType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="AdresseUUID" type="tns:UUIDType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="UUIDType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Unikt ID fra DAR som identificerer en adresse. 
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="adresseHistorikType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="kommuneCvr" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kommunekode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejkode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="husnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="etage" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="sidedoer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="bygningsnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="conavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="lokalitet" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="bynavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="postnummer" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="postdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="vejnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="retFortrydMarkering" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="tilflytningsdato" type="tns:usikkerhedDatoTidType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="fraflytningsdato" type="tns:usikkerhedDatoTidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="kontaktAdresseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdr1" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdr2" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdr3" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdr4" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kontaktAdr5" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="startdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="slettedato" type="xsd:date" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="udrejseoplysningerType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Field 'udrejselandekodeMyndighedsnavn' is currently stubbed
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="udrejselandekode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udrejselandekodeMyndighedsnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udrejsedato" type="tns:usikkerhedDatoTidType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udlandsadresse1" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udlandsadresse2" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udlandsadresse3" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udlandsadresse4" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="udlandsadresse5" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="distrikterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="postnummer" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="postdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="byfornyelsesdistriktKode" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="byfornyelsesdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="diversedistrikter" type="tns:diversedistrikterType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="evakueringsdistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="evakueringsdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kirkedistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="kirkedistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="skoledistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="skoledistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="befolkningsdistriktKode" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="befolkningsdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="socialdistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="socialdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="sognedistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="sognedistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="valgdistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="valgdistrikt" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="varmedistriktKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="varmedistrikt" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="diversedistrikterType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="distriktType" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="distriktKode" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="distrikt" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="relationerType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="aegtefaelle" type="tns:personRelationType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="barn" type="tns:barnType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mor" type="tns:personRelationType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="far" type="tns:personRelationType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="foraeldremyndighed" type="tns:foraeldremyndighedType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="notatType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="notanr" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="notatlinie" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="notatstartdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="notatslettedato" type="xsd:date" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="personRelationType">
+    <xsd:choice>
+      <xsd:element name="personnummer" type="cpr:PNRType" />
+      <xsd:sequence>
+        <xsd:element minOccurs="0" maxOccurs="1" name="foedselsdato" type="tns:usikkerhedDatoType" />
+        <xsd:element minOccurs="0" maxOccurs="1" name="navn" type="xsd:string" />
+      </xsd:sequence>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="foraeldremyndighedType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="foraeldremyndighedtype" type="tns:foraeldremyndighedTypeType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="foraeldremyndighedStartdato" type="tns:usikkerhedDatoType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="foraeldremyndighedSletdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationPersonnummer" type="cpr:PNRType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationStartdato" type="xsd:date" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="umyndiggoerelseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="umyndiggorelseRelationType" type="tns:umyndiggorelseRelationTypeType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationPersonnummer" type="cpr:PNRType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationStartdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationVaergenavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationVaergeadresseStartdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="VærgemålType" type="tns:VærgemålTypeType" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="umyndiggoerelseStartdato" type="tns:usikkerhedDatoType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="umyndiggoerelseSlettedato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="umyndiggjort" type="xsd:boolean" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationtekst1" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationtekst2" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationtekst3" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationtekst4" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationtekst5" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="VærgemålTypeType">
+    <xsd:annotation>
+      <xsd:documentation> Angivelse om fuld eller delvis værgemål. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FULD" />
+      <xsd:enumeration value="DELVIS" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="foraeldremyndighedTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                3 = Personnummer forældremyndighed mor
+                4 = Personnummer forældremyndighed far
+                5 = Anden indehaver 1
+                6 = Anden indehaver 2
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="3" />
+      <xsd:enumeration value="4" />
+      <xsd:enumeration value="5" />
+      <xsd:enumeration value="6" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="emptyType">
+    <xsd:annotation>
+      <xsd:documentation>
+                An element without attributes or content
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="0" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="statsborgerskabType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Field 'landekodeMyndighedsnavn' is currently stubbed
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="landekode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="statsborgerskabDato" type="tns:usikkerhedDatoTidType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="landekodeMyndighedsnavn" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="foedselsregistreringOplysningerType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Field 'foedselsregistreringsstedKodeMyndighedsnavn' is currently stubbed
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="foedselsregistreringsstedKode" type="xsd:integer" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="foedselsregistreringsstedKodeMyndighedsnavn" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="supplerendeFoedselsregistreringssted" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="beskyttelseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="startdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="slutdato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="beskyttet" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="umyndiggorelseRelationTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Værge relation type
+                Værdisæt:
+                0 = værge findes ikke i CPR
+                1 = værge PNR findes
+                2 = værge adressat findes
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0" />
+      <xsd:enumeration value="1" />
+      <xsd:enumeration value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="usikkerhedDatoType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="dato" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="usikkerhedsmarkering" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="usikkerhedDatoTidType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="dato" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="usikkerhedsmarkering" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="statusType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="status" type="tns:statusTypeType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="statusdato" type="tns:usikkerhedDatoTidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="civilstandType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="civilstand" type="tns:civilstandTypeType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="civilstandsdato" type="tns:usikkerhedDatoTidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="separationType">
+    <xsd:sequence>
+      <xsd:element name="separeret" type="xsd:boolean" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="separationsdato" type="tns:usikkerhedDatoTidType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="barnType">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="personnummer" type="cpr:PNRType" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
