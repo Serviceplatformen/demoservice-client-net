@@ -22,6 +22,7 @@ namespace DemoTokenClient
 
 						DemoRestServiceToken client = new DemoRestServiceToken();
 						client.CallService(message, errorMessage);
+                        Console.WriteLine("Test");
 					}
                 }
 			}
