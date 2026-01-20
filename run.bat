@@ -7,7 +7,7 @@ echo Installing certificates...
 certutil -addstore -user -f My "certificates\trustedPeople\Den Danske Stat OCES udstedende-CA 1.cer
 certutil -addstore -user -f My "certificates\trustedPeople\Den Danske Stat OCES rod-CA.cer
 certutil -addstore -user -f My "certificates\trustedPeople\SP_EXTTEST_Signing_1.cer
-certutil -addstore -user -f My "certificates\trustedPeople\ADG_EXTTEST_Adgangsstyring_1.cer
+certutil -addstore -user -f My "certificates\trustedPeople\ADG_EXTTEST_Adgangsstyring_2.cer
 certutil -addstore -user -f My "certificates\trustedPeople\star.serviceplatformen.cer
 
 
