@@ -13,7 +13,7 @@ namespace DemoTokenClient
 
         // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
         
-        public const string ClientCertificateThumbprint = "A8 2C EA 2B 27 ED B5 EB 7D D4 F4 38 57 FD 70 A6 AC 49 16 0B";
+        public const string ClientCertificateThumbprint = "639b5ff8e53246dd448bab496b6bbc2fb5e485fc";
 
 
         public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
@@ -23,7 +23,7 @@ namespace DemoTokenClient
         // Entity ID for the Serviceplatform service to fetch token for and call.
         // This ID can be found in the service contract package from the Serviceplatform as 'service.entityID' inside /sp/service.properties.
         // public const string ServiceEntityId = "http://demo.prod-serviceplatformen.dk/service/DemoService/1"; 
-        public const string ServiceEntityId = "http://entityid.kombit.dk/service/demoservicerest/1";
+        public const string ServiceEntityId = "http://cpr.serviceplatformen.dk/service/personbasedataextended/5";
 
         // The STS issuer for token requests.
         public const string StsIssuer = "https://adgangsstyring.eksterntest-stoettesystemerne.dk/";
@@ -43,11 +43,14 @@ namespace DemoTokenClient
 
         public const StoreLocation StsCertificateStoreLocation = StoreLocation.CurrentUser;
 
-        public const StoreName StsCertificateStoreName = StoreName.My;
+        public const StoreName StsCertificateStoreName = StoreName.TrustedPeople;
+
+        // Thumbprint for Serviceplatformen certifikatet: SP_EXTTEST_Signing_1
+        public const string ServicePlatformCertificateThumbprint = "91db82270be1a5e6686633d8e1a52e703a71c8c2";
 
         // The CVR of the municipality involved in the service agreement.
         // Used in the token request to STS.
-          public const string Cvr = "29189846";
+        public const string Cvr = "29189846";
         // public const string Cvr = "19435075";
 
         // Below are some of the optional values that can be used in the CallContext.

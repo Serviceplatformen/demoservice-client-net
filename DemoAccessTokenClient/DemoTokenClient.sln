@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoTokenClient", "DemoTokenClient\DemoTokenClient.csproj", "{4F1CD227-5727-45B3-8724-FA19FBB48218}"
 EndProject
@@ -14,6 +14,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56ACACD2-563C-4944-A262-15B231FD9CEF}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "certificates", "certificates", "{5B5FD5C3-038F-46AB-81E3-224EE50FAD6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "trustedPeople", "trustedPeople", "{917DC7B3-F7C3-4A32-B048-DBC18F0FAE32}"
+	ProjectSection(SolutionItems) = preProject
+		..\certificates\trustedPeople\ADG_EXTTEST_Adgangsstyring_1.cer = ..\certificates\trustedPeople\ADG_EXTTEST_Adgangsstyring_1.cer
+		..\certificates\trustedPeople\SP_EXTTEST_Signing_1.cer = ..\certificates\trustedPeople\SP_EXTTEST_Signing_1.cer
 	EndProjectSection
 EndProject
 Global
@@ -41,5 +49,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{917DC7B3-F7C3-4A32-B048-DBC18F0FAE32} = {5B5FD5C3-038F-46AB-81E3-224EE50FAD6B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CA2C7C9-5256-49E4-A77B-6A3A25631CCD}
 	EndGlobalSection
 EndGlobal
