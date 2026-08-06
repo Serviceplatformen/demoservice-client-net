@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:callctx="http://serviceplatformen.dk/xml/schemas/CallContext/1/" xmlns:autctx="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/" xmlns:tns="http://serviceplatformen.dk/xml/wsdl/soap11/CPR/PersonBaseDataExtended/5/" xmlns:invctx="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/" xmlns:cpr="http://serviceplatformen.dk/xml/schemas/cpr/PNR/1/" elementFormDefault="qualified" targetNamespace="http://serviceplatformen.dk/xml/wsdl/soap11/CPR/PersonBaseDataExtended/5/" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="sp/CallContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/CallContext/1/" />
+  <xsd:import schemaLocation="sp/AuthorityContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/AuthorityContext/1/" />
+  <xsd:import schemaLocation="sp/InvocationContext_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/InvocationContext/1/" />
+  <xsd:import schemaLocation="sp/PNR_1.xsd" namespace="http://serviceplatformen.dk/xml/schemas/cpr/PNR/1/" />
+  <xsd:include schemaLocation="xsd/PersonBaseDataExtendedServiceTypes.xsd" />
+  <xsd:element name="PersonLookupRequest" type="tns:PersonLookupRequestType" />
+  <xsd:complexType name="PersonLookupRequestType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" ref="callctx:CallContext" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="autctx:AuthorityContext" />
+      <xsd:element minOccurs="0" maxOccurs="1" ref="invctx:InvocationContext" />
+      <xsd:element ref="cpr:PNR" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PersonLookupResponse" type="tns:PersonLookupResponseType" />
+  <xsd:complexType name="PersonLookupResponseType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="persondata" type="tns:persondataType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="adresse" type="tns:adressedataType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="relationer" type="tns:relationerType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="notater" type="tns:notatType" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
