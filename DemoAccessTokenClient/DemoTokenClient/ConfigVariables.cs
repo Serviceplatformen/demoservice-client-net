@@ -13,7 +13,7 @@ namespace DemoTokenClient
 
         // SHA-1 thumbprint of the client certificate to call STS and Serviceplatformen.
         
-        public const string ClientCertificateThumbprint = "A8 2C EA 2B 27 ED B5 EB 7D D4 F4 38 57 FD 70 A6 AC 49 16 0B";
+        public const string ClientCertificateThumbprint = "EAC6FC97EAABD52B84CF578678ACDFA3EED4C85B";
 
 
         public const StoreLocation ClientCertificateStoreLocation = StoreLocation.CurrentUser;
